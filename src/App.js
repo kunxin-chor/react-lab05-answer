@@ -48,12 +48,16 @@ class App extends React.Component {
             <ContactMe/>
           </Route>
           
-          <Route path='/counter'>
-            <Counter increaseCount={this.increment}/>
+          <Route path='/counter' render={
+            (props) =>  <Counter {...props} increaseCount={this.increment}/>
+          }>
           </Route>
           
-          <Route path='/view-count'>
-            <ViewCount count={this.state.count}/>
+          <Route path='/view-count'
+            render={
+              (props) => <ViewCount  {...props} count={this.state.count}/>
+            }
+          >
           </Route>
           
           <Route path='/'>
